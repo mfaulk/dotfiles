@@ -1,0 +1,24 @@
+# This is Git's per-user configuration file.
+
+[user]
+	name = Matthew Faulkner
+	email = mnfaulk@gmail.com
+
+[core]
+	editor = emacs -nw
+
+[alias]
+	st = status -sb                 # Short status (branch + summary)
+	br = branch
+ 	co = checkout                   # Shortcut for checkout
+ 	cob = checkout -b                # Create and checkout a new branch
+	
+ 	lg = log --oneline --decorate --graph --all  # Compact graph log across all refs
+
+ 	fp = fetch --prune              # Fetch and prune deleted remote branches
+ 	up = pull --ff-only             # Pull fast-forward only (no merge commits)
+ 	publish = push -u origin HEAD   # Push current branch and set upstream
+
+ 	ds = diff --staged              # Diff staged changes
+ 	ca = commit --amend             # Amend the last commit
+ 	undo = reset --soft HEAD~1      # Undo last commit, keep changes staged

@@ -1,0 +1,26 @@
+export PATH="$HOME/.local/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+alias ..='cd ..'
+alias c='clear'
+alias h='history'
+
+### --- git ---
+alias g='git status'
+alias b='git branch'
+alias cob='git checkout branch'
+alias main='git checkout main; git branch'
+
+# Enable zsh completion (incl. Homebrew git completion)
+if command -v brew >/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+fi
+
+autoload -Uz compinit
+compinit
+
+# Wasmer
+export WASMER_DIR="/Users/mfaulk/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+export PATH=$HOME/bin:$PATH
