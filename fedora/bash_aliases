@@ -1,0 +1,12 @@
+alias ..='cd .. && ls'
+alias c=clear
+alias qj='ls -l --group-directories-first'
+
+# Git Aliases
+alias g='git status'
+alias b='git branch'
+alias cob='git checkout -b'
+alias main='git checkout main'
+alias gpush='git push --set-upstream origin "$(git branch --show-current)"'
+
+alias t='cargo nextest run'
