@@ -1,0 +1,70 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(date:*)",
+      "Bash(pwd:*)",
+      "Bash(whoami:*)",
+      "Bash(which:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(tr:*)",
+      "Bash(find:*)",
+      "Bash(xargs:*)",
+      "Bash(awk:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git remote -v:*)",
+      "Bash(git fetch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git tag:*)",
+      "Bash(xdg-open:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run list:*)",
+      "WebSearch",
+      "Read(/home/mfaulk/projects/**)",
+      "Glob(/home/mfaulk/projects/**)",
+      "Grep(/home/mfaulk/projects/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/mfaulk/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"/home/mfaulk/.claude/hooks/gsd-statusline.js\""
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "mcpServers": {
+    "moment-dash": {
+      "type": "sse",
+      "url": "https://mcp.orama.com/v1/c1_fd1298d1-3eb8-4c46-8f2b-1507f5332bd4?api-key=c1_0Kv_h_pP4JA4AyYfVGBXGlwC5Xwgt0Fp21ci6rFOwfHFKWeDRfrHqyFVIX-"
+    }
+  }
+}
