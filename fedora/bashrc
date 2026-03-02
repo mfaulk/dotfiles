@@ -27,3 +27,38 @@ fi
 unset rc
 . "$HOME/.cargo/env"
 export PATH=~/.npm-global/bin:$PATH
+
+# dotenv [file]
+# Load a shell-compatible env file into the current shell.
+# Defaults to .env. Returns nonzero on failure.
+dotenv() {
+  local file="${1:-.env}"
+
+  if [[ ! -f "$file" ]]; then
+    printf 'dotenv: file not found: %s\n' "$file" >&2
+    return 1
+  fi
+
+  # Save whether allexport was already on
+  local restore_allexport=0
+  case "$-" in
+    *a*) restore_allexport=1 ;;
+  esac
+
+  set -a
+  if ! source "$file"; then
+    local status=$?
+    if [[ $restore_allexport -eq 0 ]]; then
+      set +a
+    fi
+    printf 'dotenv: failed to load: %s\n' "$file" >&2
+    return $status
+  fi
+
+  if [[ $restore_allexport -eq 0 ]]; then
+    set +a
+  fi
+}
+
+#export GOOGLE_CLOUD_PROJECT="amaro-488500"
+#export CLOUDSDK_COMPUTE_REGION="us-central1"
