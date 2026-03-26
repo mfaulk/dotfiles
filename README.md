@@ -12,6 +12,16 @@ macOS/         # macOS: zshrc, gitconfig, emacs, claude settings
 
 ## Usage
 
+### Sync Claude dotfiles
+
+Copy the latest `~/.claude/CLAUDE.md` and `settings.json` into this repo:
+
+```sh
+./claude/sync.sh
+```
+
+### Symlink platform configs
+
 Symlink or copy the files for your platform to their expected locations. For example, on Fedora:
 
 ```sh
