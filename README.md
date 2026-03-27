@@ -6,8 +6,9 @@ Personal configuration files for macOS and Fedora.
 
 ```
 claude/        # Claude Code config (CLAUDE.md, settings.json)
+codex/         # Codex CLI config (AGENTS.md, config.toml)
 fedora/        # Fedora: bashrc, bash_aliases, emacs
-macOS/         # macOS: zshrc, gitconfig, emacs, claude settings
+macOS/         # macOS: zshrc, gitconfig, emacs, claude settings, codex config
 ```
 
 ## Usage
@@ -18,6 +19,14 @@ Copy the latest `~/.claude/CLAUDE.md` and `settings.json` into this repo:
 
 ```sh
 ./claude/sync.sh
+```
+
+### Sync Codex dotfiles
+
+Copy the latest `~/.codex/AGENTS.md` and `config.toml` into this repo:
+
+```sh
+./codex/sync.sh
 ```
 
 ### Symlink platform configs
