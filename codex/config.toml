@@ -2,5 +2,5 @@
 # Installed to: ~/.codex/config.toml
 
 model_reasoning_effort = "high"
-sandbox_mode = "workspace-write"
+sandbox_mode = "danger-full-access"
 approval_policy = "never"
