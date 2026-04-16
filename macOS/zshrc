@@ -9,6 +9,7 @@ alias h='history'
 ### --- git ---
 alias g='git status'
 alias b='git branch'
+alias p='git pull'
 alias cob='git checkout branch'
 alias main='git checkout main; git branch'
 
@@ -24,3 +25,11 @@ compinit
 export WASMER_DIR="/Users/mfaulk/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 export PATH=$HOME/bin:$PATH
+
+# Claude Code aliases
+alias claudew='claude --worktree'
+alias cw='claude --worktree'
+alias claude-yolo='claude --dangerously-skip-permissions'
+alias cy='claude --dangerously-skip-permissions'
+alias claudew-yolo='claude --worktree --dangerously-skip-permissions'
+alias cwy='claude --worktree --dangerously-skip-permissions'
