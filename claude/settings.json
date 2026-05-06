@@ -104,14 +104,76 @@
             "command": "node \"/home/mfaulk/.claude/hooks/gsd-check-update.js\""
           }
         ]
-      }
-    ],
-    "PostToolUse": [
+      },
       {
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/home/mfaulk/.claude/hooks/gsd-context-monitor.js\""
+            "command": "bash /home/mfaulk/.claude/hooks/gsd-session-state.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit|Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/mfaulk/.claude/hooks/gsd-context-monitor.js\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/mfaulk/.claude/hooks/gsd-phase-boundary.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/gsd-prompt-guard.js",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/mfaulk/.claude/hooks/gsd-read-guard.js\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/mfaulk/.claude/hooks/gsd-validate-commit.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/mfaulk/.claude/hooks/gsd-workflow-guard.js\"",
+            "timeout": 5
           }
         ]
       }
@@ -123,9 +185,25 @@
   },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true
+    "pyright-lsp@claude-plugins-official": true,
+    "endless-toil@endless-toil": true,
+    "second-opinion@trailofbits": true
   },
-  "effortLevel": "high",
+  "extraKnownMarketplaces": {
+    "endless-toil": {
+      "source": {
+        "source": "directory",
+        "path": "/home/mfaulk/projects/endless-toil"
+      }
+    },
+    "trailofbits": {
+      "source": {
+        "source": "github",
+        "repo": "trailofbits/skills"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
   "mcpServers": {}
 }
