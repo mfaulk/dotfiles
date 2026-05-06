@@ -5,7 +5,7 @@ Personal configuration files for macOS and Fedora.
 ## Structure
 
 ```
-claude/        # Claude Code config (CLAUDE.md, settings.json)
+claude/        # Claude Code config (CLAUDE.md, settings.json, agents/)
 codex/         # Codex CLI config (AGENTS.md, config.toml)
 fedora/        # Fedora: bashrc, bash_aliases, emacs
 macOS/         # macOS: zshrc, gitconfig, emacs, claude settings, codex config
@@ -15,11 +15,17 @@ macOS/         # macOS: zshrc, gitconfig, emacs, claude settings, codex config
 
 ### Sync Claude dotfiles
 
-Copy the latest `~/.claude/CLAUDE.md` and `settings.json` into this repo:
+Copy the latest `~/.claude/CLAUDE.md`, `settings.json`, and tracked
+user-authored agents (e.g. `agents/codex-delegate.md`) into this repo:
 
 ```sh
 ./claude/sync.sh
 ```
+
+Plugin-installed agents under `~/.claude/agents/` (such as the `gsd-*`
+agents) are intentionally not tracked. To add a new user-authored agent,
+append its relative path to the `files=( ... )` array in
+`claude/sync.sh`.
 
 ### Sync Codex dotfiles
 
